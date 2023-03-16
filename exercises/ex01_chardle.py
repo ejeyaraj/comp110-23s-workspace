@@ -37,4 +37,3 @@ if instance_count == 0:
     print("No instances of " + character + " found in " + word)
 if instance_count > 1:
     print(str(instance_count) + " instances of " + character + " found in " + word)
-

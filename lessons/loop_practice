@@ -1,0 +1,5 @@
+"""Practicing for loops."""
+pets: list[str] = ["asdf","asdf","asdf"]
+
+for animal in pets:
+    print(f"Good boy, {animal}!")

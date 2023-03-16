@@ -13,3 +13,7 @@ else:
     print("Oh... okay... :(")
     if (inter_cow == "you're not funny"):
         print("Wow...that hurts my feelings.:'(")
+
+int("20")
+
+print("Hello\nworld\n!!!")
