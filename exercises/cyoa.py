@@ -1,9 +1,10 @@
 """EX06 - Choose Your Own Adventure - Using functions and procedure to create my own adventure, PlantGames."""
+import random
 
 __author__ = "730569503"
 
-points: int = None
-player: str = None
+points: int
+player: str
 plant_name: str = "your plant"
 plant_emoji: str = "\U0001FAB4"
 water_emoji: str = "\U0001F4A7"
@@ -16,6 +17,7 @@ gale_emoji: str = "\U0001FAA8"
 def main() -> None:
     """This function returns none, initializes the global variable points, and runs the main game loop by calling functions."""
     global points
+    global player
     points = 0
     game_ending: bool = False
 
@@ -24,7 +26,7 @@ def main() -> None:
     while game_ending is False:
         path_choice: int = int(input(f"{player}, you can choose between three different paths. Type 1 to name and water your plant. Type 2 to pick a spot for your plant to grow. Type 3 to say goodbye and end your experience. "))
         if path_choice < 1 or path_choice > 3:
-            path_choice: int = int(input(f"Try again, {player}! Type either 1, 2, or 3 to choose a path."))
+            path_choice = int(input(f"Try again, {player}! Type either 1, 2, or 3 to choose a path."))
         elif path_choice == 1:
             name_and_water_plant()
             print(f"{player}, you have a total of {points} points.")
@@ -59,8 +61,7 @@ def name_and_water_plant() -> None:
     print(f"{player}, let's randomly pick a name for your plant{plant_emoji}.")
     int_input: int = int(input(f"{player}, pick a number between 1 and 5, not including 1 and 5. "))
     if int_input <= 1 or int_input >= 5:
-        int_input = input(f"{player}, your chosen number was out of range. Try again!")
-    import random
+        int_input = int(input(f"{player}, your chosen number was out of range. Try again!"))
     random_integer: int = random.randint(1, 2)
     int_input_with_randint: int = random_integer + int_input
     if int_input_with_randint == 3:
@@ -94,10 +95,9 @@ def pick_a_spot(point_value: int) -> int:
     """This function uses a local variable as a parameter to keep track of the points and updates it based off of user choices."""
     global plant_name
     global player
-
     spot_choice: int = int(input(f"{player}, it's time to pick a spot for {plant_name}. Type 1 to place your plant in the backyard. Type 2 to place your plant under a LED light. Type 3 to place your plant in the basement."))
     if spot_choice < 1 or spot_choice > 3:
-        spot_choice: int = int(input(f"Try again, {player}! Type 1 to place your plant in the backyard. Type 2 to place your plant under a LED light. Type 3 to put your place in the basement."))
+        spot_choice = int(input(f"Try again, {player}! Type 1 to place your plant in the backyard. Type 2 to place your plant under a LED light. Type 3 to put your place in the basement."))
     elif spot_choice == 1:
         print(f"Great job, {player}! Your backyard is a great place for {plant_name} because it is outdoors and ensures that your plant receives sunlight. You earned 15 points.")
         point_value += 15
@@ -115,6 +115,7 @@ def end() -> None:
     """This function ends the game with a goodbye message and a message with how many total points were earned."""
     global points
     global plant_name
+    global player
     print(f"{player}, thank you for playing PlantGames{plant_emoji}! You took great care of {plant_name}. You earned {points} points total.")
 
 

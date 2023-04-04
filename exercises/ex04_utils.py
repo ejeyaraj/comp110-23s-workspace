@@ -58,4 +58,5 @@ def is_equal(num_list_one: list[int], num_list_two: list[int]) -> bool:
             return False
 
     print("True")
-    return True
+    return 
+
