@@ -1,3 +1,2 @@
-
-random_integer: int = random.randint(1,4)
-print(random_integer)
+plant_emoji: str = "\U0001FAB4"
+print(plant_emoji)
