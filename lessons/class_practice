@@ -1,0 +1,17 @@
+"""Define Point class."""
+
+def
+
+
+
+
+class Point:
+
+    #attributes
+    x: float # "small" or "large"
+    y: float
+
+p0: Point = Point(1.0, 2.0)
+p0.scale_by(2.0)
+p1: Point = p0.scale(2.0)
+
