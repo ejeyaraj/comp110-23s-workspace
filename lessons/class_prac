@@ -1,0 +1,48 @@
+class PlaneTicket:
+    departure_city: str
+    arrrival_city: str
+    departure_time: int
+    ticket_cost: float
+
+    def __init__(self, city_a: str, city_b: str, depart: int, cost: float):
+        """Initialize Ticket Object."""
+        self.departure_city = city_a
+        self.arrival_city = city_b
+        self.departure_time = depart
+        self.ticket_cost = cost
+
+    def __str__(self) -> str:
+        """Returns a readable ticket."""
+        ticket_str: str = f"Flight from {self.departure_city} at {self.departure_time}."
+        ticket_str += f"Arrive in {self.arrival_city}. Costs ${self.ticket_cost}."
+        return ticket_str
+    
+    def delay(self, delay_hours: int) -> None:
+        """Update departure time."""
+        self.departure_time += delay_hours * 100
+        self.departure_time = self.departure_time % 2400
+
+    def discount(self, discount: float) -> None:
+        """Discount ticket_cost by discount."""
+        self.ticket_cost = self.ticket_cost - (discount * self.ticket_cost)
+
+def compare_prices(ticket1: PlaneTicket, ticket2: PlaneTicket) -> PlaneTicket:
+    """Compares two ticket prices, returns cheaper ticket."""
+    if ticket1.ticket_cost > ticket2.ticket_cost:
+        return ticket2
+    else:
+        return ticket1
+    
+ticket: PlaneTicket = PlaneTicket("a", "b", 1200, 10.50)
+print(ticket)
+
+raleigh_ticket: PlaneTicket = PlaneTicket("Raleigh", "New Orleans", 1000, 85.25)
+print(raleigh_ticket)
+raleigh_ticket.delay(2)
+raleigh_ticket.discount(.10)
+print(raleigh_ticket)
+
+
+orlando_ticket: PlaneTicket = PlaneTicket("Orlando", "San Franccisco", 1100, 100.50)
+print(orlando_ticket)
+print(compare_prices(raleigh_ticket, orlando_ticket))
